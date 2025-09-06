@@ -3,26 +3,38 @@ import path from "path";
 
 const isDev = !app.isPackaged;
 
+let mainWindow;
+
 function createWindow() {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1000,
     height: 800,
-    frame: false,          
+    frame: false,       // custom titlebar (since you're handling window buttons yourself)
+    show: false,        // hide until ready, prevents flicker
     webPreferences: {
       preload: path.join(process.cwd(), "preload.js"),
     },
   });
 
+  // Load content
   if (isDev) {
-    win.loadURL("http://localhost:5173");
-    win.webContents.openDevTools();
+    mainWindow.loadURL("http://localhost:5173");
+    mainWindow.webContents.openDevTools();
   } else {
-    win.loadFile(path.join(process.cwd(), "dist/index.html"));
+    mainWindow.loadFile(path.join(process.cwd(), "dist/index.html"));
   }
+
+  // Once ready, maximize and show
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.maximize(); // Normal app fullscreen
+    mainWindow.show();
+  });
 }
 
+// App lifecycle
 app.whenReady().then(() => {
   createWindow();
+
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
@@ -32,6 +44,7 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
+// IPC for window controls
 ipcMain.on("window:minimize", (e) => {
   BrowserWindow.fromWebContents(e.sender).minimize();
 });

@@ -7,7 +7,6 @@
   let bg2 = false;
   let showTopBar = false;
   
-  // Reactive background colors
   $: bgcolor = RedON ? "red" : "#292929";
   $: bgcolor1 = bg1 ? "#ffffff50" : "#292929";
   $: bgcolor2 = bg2 ? "#ffffff50" : "#292929";

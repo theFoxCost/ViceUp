@@ -1,6 +1,5 @@
 <script>
     import LoginForm from "$lib/components/login-form.svelte";
-    import Viceup from "../app/viceup.svelte";
 </script>
 <main>
 
