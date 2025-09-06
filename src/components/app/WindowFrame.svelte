@@ -28,6 +28,7 @@
       console.log("Window maximized");
     }
   }
+  
 
   function stMinimize() {
     window.electronAPI.minimize();

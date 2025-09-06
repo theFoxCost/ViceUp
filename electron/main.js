@@ -32,14 +32,25 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
+ipcMain.on("window:minimize", (e) => {
+  BrowserWindow.fromWebContents(e.sender).minimize();
+});
 
-ipcMain.handle("window:isMaximized", (event) => {
-  const win = BrowserWindow.fromWebContents(event.sender);
-  return win.isMaximized();
-});
-ipcMain.on("window:minimize", e => BrowserWindow.fromWebContents(e.sender).minimize());
-ipcMain.on("window:maximize", e => {
+ipcMain.on("window:maximize", (e) => {
   const w = BrowserWindow.fromWebContents(e.sender);
-  w.isMaximized() ? w.unmaximize() : w.maximize();
+  w.maximize();
 });
-ipcMain.on("window:close", e => BrowserWindow.fromWebContents(e.sender).close());
+
+ipcMain.on("window:unmaximize", (e) => {
+  const w = BrowserWindow.fromWebContents(e.sender);
+  w.unmaximize();
+});
+
+ipcMain.on("window:close", (e) => {
+  BrowserWindow.fromWebContents(e.sender).close();
+});
+
+ipcMain.handle("window:isMaximized", (e) => {
+  const w = BrowserWindow.fromWebContents(e.sender);
+  return w.isMaximized();
+});
