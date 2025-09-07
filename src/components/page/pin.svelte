@@ -88,11 +88,7 @@
     justify-content: center;
     align-items: center;
   }
-  
-  .user {
-    width: 140px;
-    height: 180px;
-  }
+
   
   .add-user-box {
     width: 140px;
