@@ -1,0 +1,62 @@
+[
+  {
+    "logo": "Bootstrap.svg",
+    "name": "Bootstrap",
+    "description": "Popular front-end framework Popular front-end framework Popular front-end framework Popular front-end framework Popular front-end framework",
+    "time": "12:17"
+  },
+  {
+    "logo": "Docker.svg",
+    "name": "Docker",
+    "description": "Container platform technology Container platform technology Container platform technology Container platform technology Container platform technology",
+    "time": "08:42"
+  },
+  {
+    "logo": "Google Cloud.svg",
+    "name": "Google Cloud",
+    "description": "Cloud computing service Cloud computing service Cloud computing service Cloud computing service Cloud computing service",
+    "time": "14:05"
+  },
+  {
+    "logo": "React.svg",
+    "name": "React",
+    "description": "Modern UI library Modern UI library Modern UI library Modern UI library Modern UI library",
+    "time": "09:30"
+  },
+  {
+    "logo": "Svelte.svg",
+    "name": "Svelte",
+    "description": "Fast and reactive framework Fast and reactive framework Fast and reactive framework Fast and reactive framework Fast and reactive framework",
+    "time": "16:20"
+  },
+  {
+    "logo": "CSS3.svg",
+    "name": "CSS3",
+    "description": "Style sheets for web Style sheets for web Style sheets for web Style sheets for web Style sheets for web",
+    "time": "11:12"
+  },
+  {
+    "logo": "Embedded C.svg",
+    "name": "Embedded C",
+    "description": "Low-level embedded programming Low-level embedded programming Low-level embedded programming Low-level embedded programming Low-level embedded programming",
+    "time": "07:55"
+  },
+  {
+    "logo": "JavaScript.svg",
+    "name": "JavaScript",
+    "description": "Dynamic scripting web language Dynamic scripting web language Dynamic scripting web language Dynamic scripting web language Dynamic scripting web language",
+    "time": "12:50"
+  },
+  {
+    "logo": "Rust.svg",
+    "name": "Rust",
+    "description": "Safe systems language Safe systems language Safe systems language Safe systems language Safe systems language",
+    "time": "10:25"
+  },
+  {
+    "logo": "Ubuntu.svg",
+    "name": "Ubuntu",
+    "description": "Linux-based OS platform Linux-based OS platform Linux-based OS platform Linux-based OS platform Linux-based OS platform",
+    "time": "15:40"
+  }
+]
