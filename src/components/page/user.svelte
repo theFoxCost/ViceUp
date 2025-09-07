@@ -8,6 +8,7 @@
     let clr = false;
     export let username;
     export let PicNum;
+    export let nickname;
 </script>
 
 <main class="flex flex-wrap gap-6">
@@ -37,7 +38,7 @@
             </div>
         </div>
         <!-- Text -->
-        <div class="w-full mt-auto px-6 py-3 rounded-b-lg bg-neutral-900 bg-opacity-0 relative z-30 opacity-75">
+        <div class="w-full mt-auto px-5 py-2 rounded-b-lg bg-neutral-900 bg-opacity-0 relative z-30 opacity-75">
             <p
                 class="text-sm font-medium text-center transition-colors duration-0"
                 class:text-neutral-300={!clr}
@@ -45,7 +46,11 @@
             >
                 {username}
             </p>
+            <p style="font-size: 10px; text-align:center;">
+                {nickname}
+            </p>
         </div>
+        
     </div>
 </main>
 

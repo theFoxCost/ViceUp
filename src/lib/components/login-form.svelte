@@ -16,7 +16,7 @@
     // simulate loading of all assets/data
     setTimeout(() => {
       loading = false;
-    }, 2000); // 2 seconds for demo
+    }, 3000); // 3 seconds for demo
   });
 </script>
 {#if loading}
@@ -31,7 +31,7 @@
         <Time />
     </div>
 
-    <div class="mb-8">
+    <div class="mb-8 mt-20">
         <Viceup />
     </div>
     

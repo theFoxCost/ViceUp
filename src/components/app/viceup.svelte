@@ -13,7 +13,6 @@
         font-family: gr;
         font-size: 70px;
         text-align: center;
-        margin-top: 100px;
     }
 </style>
 
