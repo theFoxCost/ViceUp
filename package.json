@@ -36,6 +36,8 @@
     "wait-on": "^8.0.4"
   },
   "dependencies": {
+    "@icons-pack/svelte-simple-icons": "^6.4.0",
+    "colorthief": "^2.6.0",
     "lucide-svelte": "^0.542.0",
     "mode-watcher": "^1.1.0",
     "moment": "^2.30.1",

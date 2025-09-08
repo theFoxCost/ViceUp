@@ -8,6 +8,7 @@
     import { ClipboardPlus } from "lucide-svelte";
     import Dropdown from './comp/dropdown.svelte'
     import { CirclePlus } from "lucide-svelte";
+    import Popbar from "./comp/popbar.svelte";
     
     let searchQuery = '';
     
@@ -67,10 +68,7 @@
                     <Dropdown />
                 </div>
                 <div class="new">
-                    <Button>
-                        <ClipboardPlus />
-                        Add Note
-                    </Button>
+                    <Popbar />
                 </div>
             </div>
         </div>

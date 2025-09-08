@@ -1,23 +1,18 @@
 <script>
   // @ts-nocheck
   import { X, SquareSquare, Minus } from "lucide-svelte";
- 
   let RedON = false;
   let bg1 = false;
   let bg2 = false;
   let showTopBar = false;
- 
   $: bgcolor = RedON ? "red" : "#292929";
   $: bgcolor1 = bg1 ? "#ffffff50" : "#292929";
   $: bgcolor2 = bg2 ? "#ffffff50" : "#292929";
- 
   let color = "white";
- 
   function stClose() {
     window.electronAPI.close();
     console.log("Window closed");
   }
- 
   async function stResize() {
     const isMax = await window.electronAPI.isMaximized();
     if (isMax) {
@@ -28,29 +23,23 @@
       console.log("Window maximized");
     }
   }
- 
   function stMinimize() {
     window.electronAPI.minimize();
     console.log("Window minimized");
   }
- 
-  // Handle mouse movement to detect hover near top
+  // Show bar when mouse is near top
   function handleMouseMove(event) {
     const mouseY = event.clientY;
-    const triggerZone = 50; // Show bar when mouse is within 50px of top
-   
+    const triggerZone = 50;
     if (mouseY <= triggerZone) {
       showTopBar = true;
-    } else if (mouseY > 80) { // Hide when mouse moves further down
+    } else if (mouseY > 80) {
       showTopBar = false;
     }
   }
- 
-  // Keep bar visible when hovering over it
   function handleBarEnter() {
     showTopBar = true;
   }
- 
   function handleBarLeave() {
     showTopBar = false;
   }
@@ -65,7 +54,7 @@
     on:mouseenter={handleBarEnter}
     on:mouseleave={handleBarLeave}
   >
-    <div class="button-group">
+    <div class="button-card">
       <div
         class="minimize"
         style="background-color: {bgcolor2}"
@@ -73,7 +62,7 @@
         on:mouseover={() => (bg2 = true)}
         on:mouseleave={() => (bg2 = false)}
       >
-        <Minus color={color} size="18" />
+        <Minus color={color} size="14" />
       </div>
       <div
         class="resize"
@@ -82,7 +71,7 @@
         on:mouseover={() => (bg1 = true)}
         on:mouseleave={() => (bg1 = false)}
       >
-        <SquareSquare color={color} size="18" />
+        <SquareSquare color={color} size="14" />
       </div>
       <div
         class="close"
@@ -91,62 +80,52 @@
         on:mouseover={() => (RedON = true)}
         on:mouseleave={() => (RedON = false)}
       >
-        <X color={color} size="18" />
+        <X color={color} size="14" />
       </div>
     </div>
   </div>
 </main>
 
 <style>
+  main {
+    position: relative;
+    z-index: 99999;
+  }
+  .bar {
+    position: fixed;
+    top: 8px;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+  .bar.visible {
+    transform: translate(-50%, 0);
+  }
+  .button-card {
+    display: flex;
+    gap: 6px;
+    background: rgba(28, 28, 28, 0.9);
+    padding: 6px 8px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.2s ease;
+  }
   .minimize,
   .resize,
   .close {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
     transition: background-color 0.2s ease;
-  }
- 
-  .bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center; /* Changed from flex-end to center */
-    height: 40px;
-    width: 100%;
-    background-color: #ffffff00;
-    transform: translateY(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
-  }
-
-  .button-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
- 
-  .bar.visible {
-    transform: translateY(0);
-  }
- 
-  .bar::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    right: 0;
-    height: 10px;
-    pointer-events: none;
-  }
- 
-  main {
-    position: relative;
-    z-index: 99999;
   }
 </style>
