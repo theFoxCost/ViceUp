@@ -4,7 +4,7 @@
   import WindowFrame from "./components/app/WindowFrame.svelte";
   import Pin from "./components/page/pin.svelte";
   import Registre from "./components/page/registre.svelte";
-  import Main from "./components/home/main.svelte";
+  import Main from "./components/main app/main.svelte";
   import { ModeWatcher } from "mode-watcher";
   import Router from 'svelte-spa-router'
   let page = 'pin'; // current page
